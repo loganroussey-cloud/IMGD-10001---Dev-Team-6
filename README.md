@@ -1,6 +1,5 @@
 # Sprint 1 Check List:
 *Due 1/27 Midnight*
-- [ ] #739
 - [ ] Add a Title Screen (Main Menu) with 3 Buttons: "Start game", "Version Notes", and "Credits"
 - [ ] Add a credits screen with scrolling capability
 - [ ] Add a version notes screen with scrolling capability
