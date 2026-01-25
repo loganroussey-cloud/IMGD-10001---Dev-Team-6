@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://yih1vficqcjl"]
+
+[ext_resource type="Script" uid="uid://bo1hu8sp30el4" path="res://splash.gd" id="1_6kcqx"]
+[ext_resource type="Texture2D" uid="uid://kvbrec5xlhjf" path="res://characters/wpilogo.png" id="2_u0xtk"]
+[ext_resource type="AudioStream" uid="uid://bxtat3bsr1xgw" path="res://audio/logosound.mp3" id="3_3l245"]
+[ext_resource type="AudioStream" uid="uid://d0nmqojighoda" path="res://audio/gomping.mp3" id="4_oh584"]
+[ext_resource type="Script" uid="uid://crqdgwx2ambxl" path="res://gomping.gd" id="5_i650n"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("splash_screen")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6kcqx")
+splash_screen = NodePath("CenterContainer/TextureRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1118.0
+offset_bottom = 592.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -505.0
+offset_top = -524.0
+offset_right = 1870.0
+offset_bottom = 1302.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_u0xtk")
+
+[node name="Logosound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3l245")
+autoplay = true
+bus = &"LogoSFX"
+
+[node name="Gomping" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oh584")
+bus = &"GoatSFX"
+script = ExtResource("5_i650n")

@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal died
-
 
 var speed = randf_range(200, 300)
 var health = 3
