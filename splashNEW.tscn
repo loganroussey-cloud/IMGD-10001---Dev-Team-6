@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://yih1vficqcjl"]
 
-[ext_resource type="Script" uid="uid://bo1hu8sp30el4" path="res://splash.gd" id="1_6kcqx"]
+[ext_resource type="Script" uid="uid://dr7kwgnieiv0w" path="res://Scripts/splash.gd" id="1_6kcqx"]
 [ext_resource type="Texture2D" uid="uid://kvbrec5xlhjf" path="res://characters/wpilogo.png" id="2_u0xtk"]
 [ext_resource type="AudioStream" uid="uid://bxtat3bsr1xgw" path="res://audio/logosound.mp3" id="3_3l245"]
 [ext_resource type="AudioStream" uid="uid://d0nmqojighoda" path="res://audio/gomping.mp3" id="4_oh584"]
-[ext_resource type="Script" uid="uid://crqdgwx2ambxl" path="res://gomping.gd" id="5_i650n"]
+[ext_resource type="Script" uid="uid://leuqfmtglex1" path="res://Scripts/gomping.gd" id="5_i650n"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("splash_screen")]
 layout_mode = 3
