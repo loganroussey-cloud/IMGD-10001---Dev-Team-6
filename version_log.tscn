@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyuumvum2liie"]
+
+[ext_resource type="Texture2D" uid="uid://dgms2hvs2t1ne" path="res://Scenes/VersionLog.png" id="1_mh4pd"]
+[ext_resource type="Script" uid="uid://cpewa777vwcri" path="res://back_button.gd" id="2_e045w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2er7c"]
+texture = ExtResource("1_mh4pd")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qel0u"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.4117647)
+shadow_size = 4
+
+[node name="Version_Log" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 644.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2er7c")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 20.0
+offset_right = 1144.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_qel0u")
+text = "<- Back
+"
+script = ExtResource("2_e045w")
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

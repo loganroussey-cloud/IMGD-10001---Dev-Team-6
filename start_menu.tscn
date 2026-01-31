@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://cl4nn7030g5wq"]
 
-[ext_resource type="Texture2D" uid="uid://13tomh00mxl3" path="res://Scenes/tempStartMenu.png" id="1_1ydhs"]
-[ext_resource type="Script" uid="uid://0x2t4bo604e" path="res://Scripts/startButton.gd" id="1_gqihx"]
+[ext_resource type="Texture2D" uid="uid://13tomh00mxl3" path="res://Scenes/tempStartMenu.png" id="1_ia0g5"]
+[ext_resource type="Script" uid="uid://0x2t4bo604e" path="res://Scripts/startButton.gd" id="2_vpdu5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rr6mw"]
-texture = ExtResource("1_1ydhs")
+texture = ExtResource("1_ia0g5")
 modulate_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ydhs"]
@@ -21,9 +21,9 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -10.0
+offset_left = 1.0
 offset_top = 1.0
-offset_right = -10.0
+offset_right = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -34,22 +34,24 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_rr6mw")
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 292.0
-offset_right = 655.2523
-offset_bottom = 369.0
+offset_left = 123.0
+offset_top = 486.0
+offset_right = 586.115
+offset_bottom = 651.83276
+rotation = -0.4537856
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_1ydhs")
 text = "Start
 "
-script = ExtResource("1_gqihx")
+script = ExtResource("2_vpdu5")
 
 [node name="Versionlog" type="Button" parent="."]
 layout_mode = 0
@@ -62,7 +64,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_1ydhs")
 text = "VersionLog
 "
-script = ExtResource("1_gqihx")
+script = ExtResource("2_vpdu5")
 
 [node name="CreditsButton" type="Button" parent="."]
 layout_mode = 0
@@ -75,7 +77,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_1ydhs")
 text = "Credits
 "
-script = ExtResource("1_gqihx")
+script = ExtResource("2_vpdu5")
 
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
 [connection signal="pressed" from="Versionlog" to="StartButton" method="_on_versionlog_pressed"]

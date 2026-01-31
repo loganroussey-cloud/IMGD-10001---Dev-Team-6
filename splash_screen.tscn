@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://yih1vficqcjl"]
 
-[ext_resource type="Script" uid="uid://dr7kwgnieiv0w" path="res://Scripts/splash.gd" id="1_6kcqx"]
-[ext_resource type="Texture2D" uid="uid://kvbrec5xlhjf" path="res://characters/wpilogo.png" id="2_u0xtk"]
-[ext_resource type="AudioStream" uid="uid://bxtat3bsr1xgw" path="res://audio/logosound.mp3" id="3_3l245"]
-[ext_resource type="AudioStream" uid="uid://d0nmqojighoda" path="res://audio/gomping.mp3" id="4_oh584"]
-[ext_resource type="Script" uid="uid://leuqfmtglex1" path="res://Scripts/gomping.gd" id="5_i650n"]
+[ext_resource type="Script" uid="uid://dr7kwgnieiv0w" path="res://Scripts/splash.gd" id="1_r8bb4"]
+[ext_resource type="Texture2D" uid="uid://kvbrec5xlhjf" path="res://characters/wpilogo.png" id="2_spqux"]
+[ext_resource type="AudioStream" uid="uid://bxtat3bsr1xgw" path="res://audio/logosound.mp3" id="3_nodus"]
+[ext_resource type="AudioStream" uid="uid://d0nmqojighoda" path="res://audio/gomping.mp3" id="4_oc6rp"]
+[ext_resource type="Script" uid="uid://leuqfmtglex1" path="res://Scripts/gomping.gd" id="5_hlpdx"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("splash_screen")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_6kcqx")
+script = ExtResource("1_r8bb4")
 splash_screen = NodePath("CenterContainer/TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -39,14 +39,14 @@ scale = Vector2(0.9, 0.9)
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
-texture = ExtResource("2_u0xtk")
+texture = ExtResource("2_spqux")
 
 [node name="Logosound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_3l245")
+stream = ExtResource("3_nodus")
 autoplay = true
 bus = &"LogoSFX"
 
 [node name="Gomping" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_oh584")
+stream = ExtResource("4_oc6rp")
 bus = &"GoatSFX"
-script = ExtResource("5_i650n")
+script = ExtResource("5_hlpdx")

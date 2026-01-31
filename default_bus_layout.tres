@@ -1,7 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://c0r1synmqj70v"]
-
-[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
-resource_name = "Compressor"
+[gd_resource type="AudioBusLayout" format=3 uid="uid://c0r1synmqj70v"]
 
 [resource]
 bus/1/name = &"BackgroundSFX"
@@ -10,8 +7,6 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = -20.376356
 bus/1/send = &"Master"
-bus/1/effect/0/effect = SubResource("AudioEffectCompressor_j3pel")
-bus/1/effect/0/enabled = true
 bus/2/name = &"GoatSFX"
 bus/2/solo = false
 bus/2/mute = false
@@ -22,5 +17,5 @@ bus/3/name = &"LogoSFX"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -3.3268216
+bus/3/volume_db = -12.978527
 bus/3/send = &"Master"

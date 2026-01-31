@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjwglrr3olott"]
+
+[ext_resource type="Texture2D" uid="uid://bwm6k1ognee7j" path="res://Scenes/creditssample.png" id="1_cb4i0"]
+[ext_resource type="Script" uid="uid://cpewa777vwcri" path="res://back_button.gd" id="2_cb4i0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvca1"]
+texture = ExtResource("1_cb4i0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8ydj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.4117647)
+shadow_size = 4
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qvca1")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 20.0
+offset_right = 1144.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_p8ydj")
+text = "<- Back
+"
+script = ExtResource("2_cb4i0")
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

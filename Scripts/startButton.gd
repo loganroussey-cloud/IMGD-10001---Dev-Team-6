@@ -9,8 +9,8 @@ func _on_pressed() -> void:
 
 
 func _on_versionlog_pressed() -> void:
-	get_tree().change_scene_to_file("res://survivors_game.tscn")
+	get_tree().change_scene_to_file("res://version_log.tscn")
 
 
 func _on_credits_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://survivors_game.tscn")
+	get_tree().change_scene_to_file("res://credits_screen.tscn")
