@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=8 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://4ode2436n8uc" path="res://Scripts/game.gd" id="1_qclsr"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://player.tscn" id="2_a7q7f"]
 [ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="3_6h7ij"]
 [ext_resource type="AudioStream" uid="uid://cfesk4tt8np37" path="res://audio/amen-break-120bpm.mp3" id="4_qqaft"]
+[ext_resource type="PackedScene" uid="uid://rignv00ljcd1" path="res://pause_menu.tscn" id="5_7jj1j"]
+[ext_resource type="Texture2D" uid="uid://dq52ugw388g8p" path="res://Scenes/papel.jpg" id="6_edxvn"]
 
 [sub_resource type="Curve2D" id="Curve2D_cp6e5"]
 _data = {
@@ -38,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.439216)
+color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="GameOver/ColorRect"]
 unique_name_in_owner = true
@@ -54,6 +56,7 @@ offset_right = 358.0
 offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 124
 text = "Game Over"
 horizontal_alignment = 1
@@ -62,12 +65,10 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -32
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.75006, 323)
+scale = Vector2(2.202857, 1.8514285)
+texture = ExtResource("6_edxvn")
 
 [node name="Trees" type="Node" parent="."]
 
@@ -109,6 +110,14 @@ stream = ExtResource("4_qqaft")
 autoplay = true
 bus = &"BackgroundSFX"
 parameters/looping = true
+
+[node name="pause_menu" parent="." instance=ExtResource("5_7jj1j")]
+visible = false
+visibility_layer = 2
+offset_left = -46.0
+offset_top = -44.0
+offset_right = -46.0
+offset_bottom = -44.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
