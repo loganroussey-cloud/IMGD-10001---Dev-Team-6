@@ -8,7 +8,7 @@ extends Control
 @export var out_time : float = 0.5
 @export var splash_screen : TextureRect
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("skip"):
 		get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
 
