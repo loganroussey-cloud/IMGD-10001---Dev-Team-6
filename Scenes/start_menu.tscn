@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cl4nn7030g5wq"]
 
-[ext_resource type="Texture2D" uid="uid://13tomh00mxl3" path="res://Scenes/tempStartMenu.png" id="1_ia0g5"]
+[ext_resource type="Texture2D" uid="uid://13tomh00mxl3" path="res://assets/tempStartMenu.png" id="1_ia0g5"]
 [ext_resource type="Script" uid="uid://0x2t4bo604e" path="res://Scripts/startButton.gd" id="2_vpdu5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rr6mw"]

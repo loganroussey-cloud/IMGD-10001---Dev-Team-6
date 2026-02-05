@@ -1,10 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjwglrr3olott"]
+[gd_scene load_steps=4 format=3 uid="uid://bjwglrr3olott"]
 
-[ext_resource type="Texture2D" uid="uid://bwm6k1ognee7j" path="res://Scenes/creditssample.png" id="1_cb4i0"]
-[ext_resource type="Script" uid="uid://cpewa777vwcri" path="res://back_button.gd" id="2_cb4i0"]
+[ext_resource type="Script" uid="uid://cpewa777vwcri" path="res://Scripts/back_button.gd" id="2_cb4i0"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvca1"]
-texture = ExtResource("1_cb4i0")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekvdo"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8ydj"]
 bg_color = Color(1, 1, 1, 1)
@@ -23,14 +22,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_qvca1")
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 644.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekvdo")
+text = "CREDITS
+
+Programming - Kavin, David
+Art, Assets - Logan
+Audio Design - Logan, Kavin, David
+
+
+
+test
+
+
+
+test
+
+
+
+test"
+horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0

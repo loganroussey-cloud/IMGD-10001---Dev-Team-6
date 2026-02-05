@@ -10,7 +10,7 @@ extends Control
 
 func _process(delta):
 	if Input.is_action_pressed("skip"):
-		get_tree().change_scene_to_file("res://start_menu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
 
 func fade() -> void:
 	splash_screen.modulate.a = 0.0
@@ -21,7 +21,7 @@ func fade() -> void:
 	tween.tween_property(splash_screen, "modulate:a", 0.0, fade_out_time)
 	tween.tween_interval(out_time)
 	await tween.finished
-	get_tree().change_scene_to_file("res://start_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
 	#get_tree().change_scene_to_packed(load_scene)
 	
 func _ready() -> void:

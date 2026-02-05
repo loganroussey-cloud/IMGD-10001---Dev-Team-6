@@ -9,7 +9,7 @@ func _process(_delta):
 
 
 func shoot():
-	const BULLET = preload("res://bullet_2d.tscn")
+	const BULLET = preload("res://pistol/bullet_2d.tscn")
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_transform = %ShootingPoint.global_transform
 	%ShootingPoint.add_child(new_bullet)

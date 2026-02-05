@@ -74,12 +74,16 @@ Settings/Show_Tooltips=true
 
 [application]
 
-config/name="0.1"
+config/name="Team6v1.0"
 run/main_scene="uid://yih1vficqcjl"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://icon.png"
+config/icon="res://characters/icon.png"
+
+[audio]
+
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 [display]
 

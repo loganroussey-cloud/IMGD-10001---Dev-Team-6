@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq52ugw388g8p"
-path="res://.godot/imported/papel.jpg-e3cfb55c571dd54ee21167306186bc91.ctex"
+uid="uid://bwm6k1ognee7j"
+path="res://.godot/imported/creditssample.png-58222cf6c07846938b51088d649bb29a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/papel.jpg"
-dest_files=["res://.godot/imported/papel.jpg-e3cfb55c571dd54ee21167306186bc91.ctex"]
+source_file="res://assets/creditssample.png"
+dest_files=["res://.godot/imported/creditssample.png-58222cf6c07846938b51088d649bb29a.ctex"]
 
 [params]
 

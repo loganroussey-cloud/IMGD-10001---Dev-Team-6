@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyuumvum2liie"]
 
-[ext_resource type="Script" path="res://back_button.gd" id="2_cb4i0"]
+[ext_resource type="Script" uid="uid://cpewa777vwcri" path="res://Scripts/back_button.gd" id="1_4lkjs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxfsc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lkjs"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8ydj"]
@@ -22,14 +22,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 647.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.38814884, 0.082197, 0.33206755, 0)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_jxfsc")
+offset_right = 1150.0
+offset_bottom = 644.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lkjs")
 text = "VERSION LOG 
 v1.0
 
@@ -38,7 +37,18 @@ v1.0
 - added version log
 - added credits screen
 - added pause menu
-"
+
+
+
+test
+
+
+
+test
+
+
+
+test"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
@@ -52,6 +62,6 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_p8ydj")
 text = "<- Back
 "
-script = ExtResource("2_cb4i0")
+script = ExtResource("1_4lkjs")
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
