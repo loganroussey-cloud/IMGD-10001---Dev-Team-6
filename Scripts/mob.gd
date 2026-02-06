@@ -27,4 +27,11 @@ func take_damage():
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
 		score_board.add_kc()
+		speed = 0
+		#%Slime.play_dead()
+		#if overlapping_withplayer:
+		#	score_board.addshaving(5)
+		#	queue_free()
+		
 		queue_free()
+		

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvgfmy6vtvjji"
-path="res://.godot/imported/slime_body.png-0d515f9e912a0d42a36c28f828394f6a.ctex"
+uid="uid://b5ivai2w3llal"
+path="res://.godot/imported/shavings.png-61bebf4079e9c9b1ffde8c9887c7e478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/slime/slime_body.png"
-dest_files=["res://.godot/imported/slime_body.png-0d515f9e912a0d42a36c28f828394f6a.ctex"]
+source_file="res://characters/wrath/shavings.png"
+dest_files=["res://.godot/imported/shavings.png-61bebf4079e9c9b1ffde8c9887c7e478.ctex"]
 
 [params]
 

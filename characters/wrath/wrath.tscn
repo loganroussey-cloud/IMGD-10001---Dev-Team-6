@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ogik4s70pgwl"]
+[gd_scene load_steps=10 format=3 uid="uid://ogik4s70pgwl"]
 
-[ext_resource type="Script" uid="uid://c055juj57t86b" path="res://Scripts/wrath.gd" id="1_87y5x"]
-[ext_resource type="Texture2D" uid="uid://cf63c2laibpq8" path="res://characters/dev_wrath.png" id="3_648cb"]
-[ext_resource type="Texture2D" uid="uid://pc56ob7ltyal" path="res://characters/dev_wrath_hurt.png" id="4_w75ej"]
+[ext_resource type="Script" uid="uid://c055juj57t86b" path="res://Scripts/wrath.gd" id="1_u156u"]
+[ext_resource type="Texture2D" uid="uid://cf63c2laibpq8" path="res://characters/dev_wrath.png" id="2_t2csq"]
+[ext_resource type="Texture2D" uid="uid://pc56ob7ltyal" path="res://characters/dev_wrath_hurt.png" id="3_bjfim"]
+[ext_resource type="Texture2D" uid="uid://b5ivai2w3llal" path="res://characters/wrath/shavings.png" id="4_t2csq"]
 
 [sub_resource type="Animation" id="Animation_y4lve"]
 length = 0.001
@@ -115,13 +116,13 @@ _data = {
 
 [node name="Wrath" type="Node2D"]
 scale = Vector2(0.35, 0.35)
-script = ExtResource("1_87y5x")
+script = ExtResource("1_u156u")
 
 [node name="Anchor" type="Marker2D" parent="."]
 
 [node name="WrathBody" type="Sprite2D" parent="."]
 position = Vector2(11.42857, 45.714283)
-texture = ExtResource("3_648cb")
+texture = ExtResource("2_t2csq")
 offset = Vector2(0, -36)
 
 [node name="WrathBodyHurt" type="Sprite2D" parent="WrathBody"]
@@ -129,7 +130,15 @@ visible = false
 show_behind_parent = true
 position = Vector2(-5.7142835, 2.861023e-06)
 scale = Vector2(0.9999996, 0.9999996)
-texture = ExtResource("4_w75ej")
+texture = ExtResource("3_bjfim")
+offset = Vector2(0, -36)
+
+[node name="WrathDead" type="Sprite2D" parent="WrathBody"]
+visible = false
+show_behind_parent = true
+position = Vector2(-17.142822, -51.42856)
+scale = Vector2(0.17346887, 0.21298648)
+texture = ExtResource("4_t2csq")
 offset = Vector2(0, -36)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

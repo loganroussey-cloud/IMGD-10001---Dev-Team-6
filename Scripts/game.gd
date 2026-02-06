@@ -2,19 +2,18 @@ extends Node2D
 @onready var score_board = $score_board
 @onready var pause_menu = $pause_menu
 var paused = false
-var scoreboardOpen = false
-var wrathKC = 0
+#var scoreboardOpen = false
 
 #pauses game
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-	if Input.is_action_just_pressed("scoreboard"):
-		if scoreboardOpen:
-			score_board.hide()
-		else:
-			score_board.show()
-		scoreboardOpen = !scoreboardOpen
+#hold to show scoreboard
+	if Input.is_action_pressed("scoreboard"):
+		score_board.show()
+	else:
+		score_board.hide()
+		#scoreboardOpen = !scoreboardOpen
 		
 
 func pauseMenu():
