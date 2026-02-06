@@ -26,7 +26,7 @@ func _physics_process(delta):
 			health_depleted.emit()
 	
 func _process(_delta):
-	if Input.is_action_pressed("dash")&&(!dashing):
+	if Input.is_action_pressed("dash")&&(!dashing)&&(velocity.length()!=0):
 			dashing = true
 			var tempHealth = health
 			health = INF
@@ -36,8 +36,8 @@ func _process(_delta):
 			health = tempHealth
 			speed = 600.0
 			modulate = Color(0.605, 0.684, 1.0, 1.0)
-			await get_tree().create_timer(2.0).timeout
-			modulate = Color(1.0, 1.0, 1.0, 1.0) #change time here for dash cooldown
+			await get_tree().create_timer(1.0).timeout #change time here for dash cooldown
+			modulate = Color(1.0, 1.0, 1.0, 1.0)
 			dashing = false
 		#set speed
 		#start timer

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var slime_body_hurt: Sprite2D = $SlimeBody/SlimeBodyHurt
+@onready var wrath_body_hurt: Sprite2D = $WrathBody/WrathBodyHurt
 
 func play_walk():
 	%AnimationPlayer.play("walk")
@@ -8,5 +8,5 @@ func play_walk():
 
 func play_hurt():
 	%AnimationPlayer.play("hurt")
-	slime_body_hurt.show()
+	wrath_body_hurt.show()
 	%AnimationPlayer.queue("walk")

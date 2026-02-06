@@ -4,8 +4,8 @@ extends CharacterBody2D
 var speed = randf_range(200, 300)
 var health = 3
 
+@onready var score_board
 @onready var player = get_node("/root/Game/Player")
-
 
 func _ready():
 	%Slime.play_walk()
@@ -26,4 +26,5 @@ func take_damage():
 		var smoke = smoke_scene.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+		score_board.add_kc()
 		queue_free()

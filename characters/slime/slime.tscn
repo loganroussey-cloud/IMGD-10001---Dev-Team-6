@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ogik4s70pgwl"]
 
-[ext_resource type="Script" uid="uid://c055juj57t86b" path="res://Scripts/slime.gd" id="1_87y5x"]
+[ext_resource type="Script" uid="uid://c055juj57t86b" path="res://Scripts/wrath.gd" id="1_87y5x"]
 [ext_resource type="Texture2D" uid="uid://cf63c2laibpq8" path="res://characters/dev_wrath.png" id="3_648cb"]
 [ext_resource type="Texture2D" uid="uid://pc56ob7ltyal" path="res://characters/dev_wrath_hurt.png" id="4_w75ej"]
 
@@ -10,7 +10,7 @@ step = 0.0043
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SlimeBody:scale")
+tracks/0/path = NodePath("WrathBody:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +38,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SlimeBody/SlimeBodyHurt:modulate:a")
+tracks/1/path = NodePath("WrathBody/WrathBodyHurt:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -54,7 +54,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SlimeBody:scale")
+tracks/0/path = NodePath("WrathBody:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -95,7 +95,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SlimeBody:scale")
+tracks/1/path = NodePath("WrathBody:scale")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -113,18 +113,18 @@ _data = {
 &"walk": SubResource("Animation_l6fy2")
 }
 
-[node name="Slime" type="Node2D"]
+[node name="Wrath" type="Node2D"]
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_87y5x")
 
 [node name="Anchor" type="Marker2D" parent="."]
 
-[node name="SlimeBody" type="Sprite2D" parent="."]
+[node name="WrathBody" type="Sprite2D" parent="."]
 position = Vector2(11.42857, 45.714283)
 texture = ExtResource("3_648cb")
 offset = Vector2(0, -36)
 
-[node name="SlimeBodyHurt" type="Sprite2D" parent="SlimeBody"]
+[node name="WrathBodyHurt" type="Sprite2D" parent="WrathBody"]
 visible = false
 show_behind_parent = true
 position = Vector2(-5.7142835, 2.861023e-06)
