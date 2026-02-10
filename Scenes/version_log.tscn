@@ -39,16 +39,16 @@ v1.0
 - added pause menu
 
 
+VERSION LOG 
+v1.1
 
-test
+- added dash
+- changed basic mob model
+- changed tree model
+- added scoreboard
+- added slot machine for spins
 
-
-
-test
-
-
-
-test"
+"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
