@@ -25,6 +25,7 @@ wait_time = 0.3
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("2_a7q7f")]
+z_index = 1
 
 [node name="Path2D" type="Path2D" parent="Player"]
 curve = SubResource("Curve2D_cp6e5")
@@ -122,14 +123,14 @@ offset_top = -44.0
 offset_right = -46.0
 offset_bottom = -44.0
 
+[node name="gamble_menu" parent="." instance=ExtResource("8_v0jmy")]
+script = ExtResource("9_8o5cv")
+
 [node name="score_board" parent="." instance=ExtResource("7_twsm8")]
 offset_left = -163.0
 offset_top = -306.0
 offset_right = -163.0
 offset_bottom = -306.0
-
-[node name="gamble_menu" parent="." instance=ExtResource("8_v0jmy")]
-script = ExtResource("9_8o5cv")
 
 [connection signal="timeout" from="Mob_Spawn_Timer" to="." method="_on_timer_timeout"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]

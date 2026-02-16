@@ -1,10 +1,10 @@
 extends Control
 
+@onready var score_board: Control = $"../score_board"
 @onready var player: CharacterBody2D = $"../Player"
 @onready var gamble_screen: Control = $"."
 @onready var texture_button: TextureButton = $TextureButton
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	texture_button.pressed.connect(_on_texture_button_pressed)
 
@@ -15,4 +15,11 @@ func _process(_delta):
 
 
 func _on_texture_button_pressed():
-	print("machine spun")
+	if (randi_range(1, 10) == 1):
+		score_board.add_gold()
+		print("you got +1 gold!")
+	else:
+		score_board.add_coal()
+		print("you got +1 coal...")
+	#print("machine spun")
+	

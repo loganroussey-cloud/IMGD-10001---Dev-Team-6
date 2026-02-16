@@ -6,6 +6,7 @@
 
 [node name="gamble_menu" type="Control"]
 visible = false
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 128.0
