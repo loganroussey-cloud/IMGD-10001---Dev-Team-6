@@ -2,8 +2,19 @@ extends CharacterBody2D
 
 signal health_depleted
 var dashing = false
+var base_health = 100.0
+var base_speed = 600.0
+
 var health = 100.0
 var speed = 600.0
+
+func apply_perks():
+	speed = base_speed + RunPerks.speed_bonus
+	health = base_health + RunPerks.max_health_bonus
+	
+func _ready():
+	RunPerks.perks_updated.connect(apply_perks)
+	apply_perks()
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

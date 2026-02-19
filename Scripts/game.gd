@@ -11,6 +11,19 @@ func _process(_delta):
 	if Input.is_action_just_pressed("inventory"):
 		pauseInventory()
 
+func _ready():
+	RunPerks.reset()
+
+	RunPerks.speed_bonus = 200
+	RunPerks.max_health_bonus = 50
+	RunPerks.damage_bonus = 2
+	RunPerks.fire_rate_multiplier = 1
+
+	var player = $Player
+	player.apply_perks()
+
+	var gun = player.get_node("Gun")
+	gun.apply_perks()
 
 func pauseMenu():
 	if paused:

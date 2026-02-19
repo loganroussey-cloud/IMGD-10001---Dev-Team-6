@@ -85,6 +85,10 @@ config/icon="res://characters/icon.png"
 
 buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
+[autoload]
+
+RunPerks="*res://Scripts/run_perks.gd"
+
 [display]
 
 window/stretch/mode="viewport"
