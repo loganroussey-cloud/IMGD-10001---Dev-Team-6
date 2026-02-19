@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=14 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://4ode2436n8uc" path="res://Scripts/game.gd" id="1_qclsr"]
+[ext_resource type="PackedScene" uid="uid://bspsmgu0d0h2y" path="res://characters/bosses/boss.tscn" id="2_8o5cv"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://characters/player.tscn" id="2_a7q7f"]
 [ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="3_6h7ij"]
 [ext_resource type="AudioStream" uid="uid://cfesk4tt8np37" path="res://audio/amen-break-120bpm.mp3" id="4_qqaft"]
@@ -16,9 +17,16 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0jmy"]
+bg_color = Color(0.8745098, 0.30588236, 0.6039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8o5cv"]
+bg_color = Color(0.5048428, 0.04825778, 0.18049535, 1)
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qclsr")
+boss_scene = ExtResource("2_8o5cv")
 
 [node name="Mob_Spawn_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -73,6 +81,14 @@ layer = -32
 position = Vector2(574.75006, 323)
 scale = Vector2(2.202857, 1.8514285)
 texture = ExtResource("6_edxvn")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 784.0
+offset_top = 40.0
+offset_right = 1123.0
+offset_bottom = 94.0
+theme_override_styles/background = SubResource("StyleBoxFlat_v0jmy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8o5cv")
 
 [node name="Trees" type="Node" parent="."]
 

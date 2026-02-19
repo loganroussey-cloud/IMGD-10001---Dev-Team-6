@@ -88,6 +88,7 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 [autoload]
 
 RunPerks="*res://Scripts/run_perks.gd"
+GameEvents="*res://Scripts/game_events.gd"
 
 [display]
 

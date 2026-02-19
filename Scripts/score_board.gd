@@ -17,9 +17,9 @@ func _process(_delta):
 
 
 
-func add_kc():
-	wrathkc += 1
-	update_label()
+#func add_kc():
+	#wrathkc += 1
+	#update_label()
 func add_gold():
 	gold += 1
 	update_label()
@@ -27,7 +27,7 @@ func add_coal():
 	coal += 1
 	update_label()
 func update_label():
-	label.text = "wrath monsters killed: " + str(wrathkc) + "\ngold: " + str(gold) + "\ncoal: " + str(coal)
+	label.text = "gold: " + str(gold) + "\ncoal: " + str(coal)
 	#when kc or gold or coal func is called, update the label with all
 #func add_shaving(amt):
 #	shavings += amt
