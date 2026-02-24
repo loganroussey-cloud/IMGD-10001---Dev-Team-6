@@ -39,7 +39,6 @@ v1.0
 - added pause menu
 
 
-VERSION LOG 
 v1.1
 
 - added dash
@@ -48,6 +47,18 @@ v1.1
 - added scoreboard
 - added slot machine for spins
 
+
+v1.2
+
+- added coal and gold to possible spin results
+- changed z-index of some objects
+
+
+v1.3
+- added wave based spawns for mobs, with a \"boss\" encounter once the wave bar fills
+- added perk list + 4 base modifiers
+- added death screen
+- changed some z-indexes
 "
 horizontal_alignment = 1
 

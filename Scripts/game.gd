@@ -4,7 +4,7 @@ extends Node2D
 @onready var gamble_menu = $gamble_menu
 @onready var progress_bar = $CanvasLayer/ProgressBar
 @export var boss_scene: PackedScene
-
+@onready var death_menu = $death_menu
 var paused = false
 
 var kills := 0
@@ -85,8 +85,7 @@ func _on_timer_timeout():
 	enemies_spawned += 1
 
 func _on_player_health_depleted():
-	%GameOver.show()
-	get_tree().paused = true
+	get_tree().change_scene_to_file("res://Scenes/death_menu.tscn")
 	
 func _on_enemy_killed():
 
