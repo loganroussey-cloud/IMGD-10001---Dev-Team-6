@@ -65,12 +65,12 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"east",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [],
 "loop": false,
 "name": &"eastidle",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -105,17 +105,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"north",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [],
 "loop": true,
 "name": &"northeast",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [],
 "loop": false,
 "name": &"northeastidle",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,7 +126,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"northidle",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -161,7 +161,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"northwest",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -172,7 +172,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"northwestidle",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -195,17 +195,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"south",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [],
 "loop": true,
 "name": &"southeast",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [],
 "loop": false,
 "name": &"southeastidle",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,7 +216,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"southidle",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -254,7 +254,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"southwest",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -265,7 +265,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"southwestidle",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -300,7 +300,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"west",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -311,7 +311,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"westidle",
-"speed": 5.0
+"speed": 24.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g4s4"]
@@ -330,7 +330,7 @@ script = ExtResource("1_f7rws")
 unique_name_in_owner = true
 position = Vector2(4, -6)
 sprite_frames = SubResource("SpriteFrames_6jefj")
-animation = &"southidle"
+animation = &"southwestidle"
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
