@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfa3pl7cdjxai"]
 
-[ext_resource type="Script" uid="uid://can02b5buwoil" path="res://Scenes/death_menu.gd" id="1_8sm51"]
+[ext_resource type="Script" uid="uid://can02b5buwoil" path="res://Scripts/death_menu.gd" id="1_8sm51"]
 [ext_resource type="Texture2D" uid="uid://c2piwp1p4evrp" path="res://assets/deathpapel.png" id="2_ipdme"]
 
 [node name="death_menu" type="Control"]
@@ -15,8 +15,8 @@ grow_vertical = 2
 script = ExtResource("1_8sm51")
 
 [node name="Deathpapel" type="Sprite2D" parent="."]
-position = Vector2(-0.75, -1)
-scale = Vector2(2.1819048, 1.8457143)
+position = Vector2(-4.1246414e-05, 0.50000906)
+scale = Vector2(2.201905, 1.8542858)
 texture = ExtResource("2_ipdme")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

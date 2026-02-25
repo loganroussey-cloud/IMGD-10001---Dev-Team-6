@@ -1,7 +1,7 @@
 extends Control
 
 @onready var score_board: Control = $"../score_board"
-@onready var player: CharacterBody2D = $"../Player"
+@onready var sketch_man: CharacterBody2D = $"../sketch_man"
 @onready var gamble_screen: Control = $"."
 @onready var texture_button: TextureButton = $TextureButton
 var low_endroll = 1
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position = player.position + Vector2(-550,-320)
+	position = sketch_man.position + Vector2(-550,-320)
 
 
 func _on_texture_button_pressed():

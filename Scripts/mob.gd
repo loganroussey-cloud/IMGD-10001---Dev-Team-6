@@ -5,13 +5,13 @@ var speed = randf_range(200, 300)
 var health = 5
 
 @onready var score_board
-@onready var player = get_node("/root/Game/Player")
+@onready var sketch_man = get_node("/root/Game/sketch_man")
 
 func _ready():
 	%Slime.play_walk()
 
 func _physics_process(_delta):
-	var direction = global_position.direction_to(player.global_position)
+	var direction = global_position.direction_to(sketch_man.global_position)
 	velocity = direction * speed
 	move_and_slide()
 

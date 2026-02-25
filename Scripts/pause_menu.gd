@@ -1,15 +1,14 @@
 extends Control
-
+@onready var sketch_man: CharacterBody2D = $"../sketch_man"
 @onready var game: Node2D = $".."
-@onready var player: CharacterBody2D = $"../Player"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_node("../Player")
+	sketch_man = get_node("../sketch_man")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position = player.position
+	position = sketch_man.position
 
 
 

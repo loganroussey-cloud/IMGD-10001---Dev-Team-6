@@ -59,6 +59,9 @@ v1.3
 - added perk list + 4 base modifiers
 - added death screen
 - changed some z-indexes
+- added new model of player
+- added 8-cardinal movement
+
 "
 horizontal_alignment = 1
 

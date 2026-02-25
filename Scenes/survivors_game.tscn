@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=16 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://4ode2436n8uc" path="res://Scripts/game.gd" id="1_qclsr"]
 [ext_resource type="PackedScene" uid="uid://bspsmgu0d0h2y" path="res://characters/bosses/boss.tscn" id="2_8o5cv"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://characters/player.tscn" id="2_a7q7f"]
 [ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="3_6h7ij"]
+[ext_resource type="PackedScene" uid="uid://b8nnbr3kd30pk" path="res://Scenes/player_new.tscn" id="4_5yf52"]
 [ext_resource type="AudioStream" uid="uid://cfesk4tt8np37" path="res://audio/amen-break-120bpm.mp3" id="4_qqaft"]
 [ext_resource type="PackedScene" uid="uid://rignv00ljcd1" path="res://Scenes/pause_menu.tscn" id="5_7jj1j"]
 [ext_resource type="Texture2D" uid="uid://dq52ugw388g8p" path="res://assets/papel.jpg" id="6_edxvn"]
@@ -33,7 +34,11 @@ boss_scene = ExtResource("2_8o5cv")
 wait_time = 0.5
 autostart = true
 
+[node name="sketch_man" parent="." instance=ExtResource("4_5yf52")]
+position = Vector2(424, 191)
+
 [node name="Player" parent="." instance=ExtResource("2_a7q7f")]
+visible = false
 z_index = 1
 
 [node name="Path2D" type="Path2D" parent="Player"]

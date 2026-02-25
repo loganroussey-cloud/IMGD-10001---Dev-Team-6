@@ -4,7 +4,7 @@ var wrathkc = 0
 var shavings = 0
 var gold = 0
 var coal = 0
-@onready var player: CharacterBody2D = $"../Player"
+@onready var sketch_man: CharacterBody2D = $"../sketch_man"
 @onready var label: Label = $Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position = player.position + Vector2(-500,-300)
+	position = sketch_man.position + Vector2(-500,-300)
 
 
 
