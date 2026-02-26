@@ -2,7 +2,7 @@ extends Area2D
 
 
 var travelled_distance = 0
-
+var base_damage := 1
 
 func _physics_process(delta):
 	const SPEED = 1000
@@ -16,6 +16,10 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	queue_free()
+	var final_damage = base_damage + RunPerks.damage_bonus
+	if randf() < RunPerks.crit_chance:
+		final_damage *= 2.0
 	if body.has_method("take_damage"):
-		body.take_damage(1 + RunPerks.damage_bonus)
+		body.take_damage(final_damage)
+
+	queue_free()

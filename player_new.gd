@@ -4,20 +4,28 @@ signal health_depleted
 var last_animation = "north"
 var is_moving = false
 var dashing = false
-var base_health = 100.0
-var base_speed = 600.0
 
 var health = 100.0
 var speed = 600.0
 
+const BASE_SPEED = 300
+const BASE_HEALTH = 100
+var max_health = BASE_HEALTH
+
 func apply_perks():
-	speed = base_speed + RunPerks.speed_bonus
-	health = base_health + RunPerks.max_health_bonus
+	max_health = BASE_HEALTH + RunPerks.max_health_bonus
+
+	# Fully heal when max health increases
+	health = max_health
+
+	%HealthBar.max_value = max_health
+	%HealthBar.value = health
+
+	speed = BASE_SPEED + RunPerks.speed_bonus
 
 func _ready():
-	RunPerks.perks_updated.connect(apply_perks)
+	RunPerks.perk_added.connect(apply_perks)
 	apply_perks()
-	
 
 func get_direction_name(direction: Vector2) -> String:
 	var x = direction.x
@@ -31,8 +39,6 @@ func get_direction_name(direction: Vector2) -> String:
 	else:
 		%PlayerAnimation.flip_h = false
 		return "south" if y > 0 else "north"
-
-
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -50,27 +56,44 @@ func _physics_process(delta):
 			is_moving = false
 			%PlayerAnimation.play(last_animation + "idle")
 
-
+	# Passive regen
+	if RunPerks.regen_per_second > 0 and health < max_health:
+		health += RunPerks.regen_per_second * delta
+		health = clamp(health, 0, max_health)
+		%HealthBar.value = health
 
 	const DAMAGE_RATE = 6.0
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
-	if overlapping_mobs:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+	if overlapping_mobs.size() > 0 and not dashing:
+		# Player takes damage
+		var incoming = DAMAGE_RATE * overlapping_mobs.size() * delta
+		incoming *= (1.0 - RunPerks.damage_reduction)
+		health -= incoming
 		%HealthBar.value = health
+		# Thorns damage back to enemies
+		if RunPerks.thorns_damage > 0:
+			for mob in overlapping_mobs:
+				if mob.has_method("take_damage"):
+					mob.take_damage(RunPerks.thorns_damage * delta)
+
 		if health <= 0.0:
 			health_depleted.emit()
 
 func _process(_delta):
 	if Input.is_action_pressed("dash")&&(!dashing)&&(velocity.length()!=0):
 			dashing = true
-			var tempHealth = health
-			health = INF
+			#var tempHealth = health
+			var tempSpeed = speed
 			speed = 1600.0
 			modulate = Color(0.026, 0.125, 0.495, 1.0)
 			await get_tree().create_timer(0.3).timeout #change time here for dash duration
-			health = tempHealth
-			speed = 600.0
+			#health = tempHealth
+			speed = tempSpeed
 			modulate = Color(0.605, 0.684, 1.0, 1.0)
 			await get_tree().create_timer(1.0).timeout #change time here for dash cooldown
 			modulate = Color(1.0, 1.0, 1.0, 1.0)
 			dashing = false
+			
+func heal(amount):
+	health = clamp(health + amount, 0, max_health)
+	%HealthBar.value = health

@@ -2,17 +2,13 @@ extends Node2D
 @onready var score_board = $score_board
 @onready var pause_menu = $pause_menu
 @onready var gamble_menu = $gamble_menu
-@onready var progress_bar = $CanvasLayer/ProgressBar
+@onready var progress_bar = $UI/ProgressBar
 @export var boss_scene: PackedScene
 @onready var death_menu = $death_menu
+@onready var perk_notification = $UI/PerkNotification
 var paused = false
 
-var kills := 0
-var kills_to_boss := 10
-var boss_spawned := false
-var all_perks = ["Speed", "Damage", "Health", "Fire Rate"]
-
-var current_wave := 1
+var all_perks = ["Speed", "Damage", "Health", "Fire Rate", "Life Steal", "Thorns", "Regen", "Crit Chance", "Armor"]
 
 var enemies_spawned := 0
 var enemies_killed := 0
@@ -32,19 +28,19 @@ func _process(_delta):
 func _ready():
 	randomize()
 	RunPerks.reset()
+	
+	RunPerks.add_perk("Speed")
+	RunPerks.add_perk("Health")
+	RunPerks.add_perk("Damage")
 
-	RunPerks.speed_bonus = 200
-	RunPerks.max_health_bonus = 50
-	RunPerks.damage_bonus = 2
-	RunPerks.fire_rate_multiplier = 1
-
-	var player = $Player
+	var player = $sketch_man
 	player.apply_perks()
 
 	var gun = player.get_node("Gun")
 	gun.apply_perks()
 	
 	GameEvents.enemy_killed_signal.connect(_on_enemy_killed)
+	GameEvents.boss_killed.connect(_on_boss_killed)
 
 func pauseMenu():
 	if paused:
@@ -106,8 +102,6 @@ func spawn_boss():
 	var boss = boss_scene.instantiate()
 	boss.global_position = %PathFollow2D.global_position
 	add_child.call_deferred(boss)
-
-	GameEvents.boss_killed.connect(_on_boss_killed)
 	
 func _on_boss_killed():
 	show_perk_choices()
@@ -122,21 +116,17 @@ func show_perk_choices():
 		var index = randi() % pool.size()
 		choices.append(pool[index])
 		pool.remove_at(index)
-	
-	print("Choose one:", choices)
-	
-	RunPerks.add_perk(choices[0])
-	
-	reset_boss_cycle()
 
-func reset_boss_cycle():
-	kills = 0
-	progress_bar.value = 0
-	boss_spawned = false
+	# Apply perks
+	for perk in choices:
+		RunPerks.add_perk(perk)
+
+	# Show ALL perks in one notification
+	perk_notification.show_multiple_perks(choices)
+
+	boss_active = false
 	
 func start_next_wave():
-
-	current_wave += 1
 	
 	enemies_spawned = 0
 	enemies_killed = 0
@@ -145,7 +135,5 @@ func start_next_wave():
 	enemies_to_kill += 5
 	
 	progress_bar.value = 0
-	
-	boss_active = false
 	
 	$Mob_Spawn_Timer.start()

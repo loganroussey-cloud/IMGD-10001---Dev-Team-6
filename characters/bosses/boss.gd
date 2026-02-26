@@ -4,32 +4,34 @@ var health := 50
 var speed = randf_range(200, 300)
 
 @onready var score_board
-@onready var player = get_node("/root/Game/Player")
+@onready var sketch_man = get_node("/root/Game/sketch_man")
 
 func _ready():
 	%BossArt.play_walk()
 
 func _physics_process(_delta):
-	var direction = global_position.direction_to(player.global_position)
+	var direction = global_position.direction_to(sketch_man.global_position)
 	velocity = direction * speed
-	move_and_slide()
-
-func die():
-	GameEvents.emit_signal("boss_killed")
-	queue_free()
+	move_and_slide()	
 
 func take_damage(amount = 1):
 	%BossArt.play_hurt()
 	health -= amount
-	if health <= 0:
-		die()
-
+	
+	#Apply lifesteal
+	var lifesteal = RunPerks.lifesteal_percent
+	if lifesteal > 0:
+		var heal_amount = amount * lifesteal
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			player.heal(heal_amount)
+		
 	if health <= 0:
 		var smoke_scene = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = smoke_scene.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
-		#score_board.add_kc()
+		GameEvents.emit_signal("boss_killed")
 		
 		queue_free()
 		GameEvents.enemy_killed()

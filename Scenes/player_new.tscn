@@ -315,15 +315,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g4s4"]
-size = Vector2(52, 342)
+size = Vector2(80, 302)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g4s4"]
 bg_color = Color(0.623529, 0.866667, 0.317647, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkuqr"]
-size = Vector2(88, 368)
+size = Vector2(72, 294)
 
-[node name="sketch_man" type="CharacterBody2D"]
+[node name="sketch_man" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_f7rws")
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
@@ -334,27 +334,28 @@ animation = &"southwestidle"
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-12, 87)
+position = Vector2(-16, 85)
+scale = Vector2(1.0051943, 1)
 shape = SubResource("RectangleShape2D_8g4s4")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 z_index = 100
-offset_left = -102.0
-offset_top = -137.0
-offset_right = 68.0
-offset_bottom = -102.0
+offset_left = -98.0
+offset_top = -126.99999
+offset_right = 72.0
+offset_bottom = -91.99999
+scale = Vector2(1, 0.24000001)
 theme_override_styles/fill = SubResource("StyleBoxFlat_8g4s4")
 value = 100.0
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16, 91)
+position = Vector2(-16, 85)
 shape = SubResource("RectangleShape2D_kkuqr")
 
 [node name="Gun" parent="." instance=ExtResource("59_kkuqr")]

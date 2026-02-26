@@ -19,6 +19,23 @@ func take_damage(amount = 1):
 	%Slime.play_hurt()
 	health -= amount
 
+	 #Apply lifesteal
+	var lifesteal = RunPerks.lifesteal_percent
+	if lifesteal > 0:
+		var heal_amount = amount * lifesteal
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			player.heal(heal_amount)
+
+	if health <= 0:
+		var smoke_scene = preload("res://smoke_explosion/smoke_explosion.tscn")
+		var smoke = smoke_scene.instantiate()
+		get_parent().add_child(smoke)
+		smoke.global_position = global_position
+
+		queue_free()
+		GameEvents.enemy_killed()
+
 	if health <= 0:
 		var smoke_scene = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = smoke_scene.instantiate()

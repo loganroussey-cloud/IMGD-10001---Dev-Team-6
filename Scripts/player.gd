@@ -13,10 +13,14 @@ func apply_perks():
 	health = base_health + RunPerks.max_health_bonus
 	
 func _ready():
-	RunPerks.perks_updated.connect(apply_perks)
+	RunPerks.perk_added.connect(apply_perks)
+	add_to_group("player")
 	apply_perks()
 
 func _physics_process(delta):
+	if get_tree().paused:
+		return
+		
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 
@@ -37,6 +41,9 @@ func _physics_process(delta):
 			health_depleted.emit()
 	
 func _process(_delta):
+	if get_tree().paused:
+		return
+	
 	if Input.is_action_pressed("dash")&&(!dashing)&&(velocity.length()!=0):
 			dashing = true
 			var tempHealth = health
@@ -56,3 +63,7 @@ func _process(_delta):
 		#end timer
 		#set immunity back
 		#set speed back
+		
+func heal(amount):
+	health = clamp(health + amount, 0, base_health + RunPerks.max_health_bonus)
+	%HealthBar.value = health
