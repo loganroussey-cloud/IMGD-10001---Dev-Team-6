@@ -6,9 +6,9 @@ extends Node2D
 @export var boss_scene: PackedScene
 @onready var death_menu = $death_menu
 @onready var perk_notification = $UI/PerkNotification
-var paused = false
 
-var all_perks = ["Speed", "Damage", "Health", "Fire Rate", "Life Steal", "Thorns", "Regen", "Crit Chance", "Armor"]
+var all_perks = ["Speed", "Damage", "Health", "Fire Rate",
+ 				"Life Steal", "Thorns", "Regen", "Crit Chance", "Armor"]
 
 var enemies_spawned := 0
 var enemies_killed := 0
@@ -18,14 +18,18 @@ var enemies_to_kill := 10
 
 var boss_active := false
 
-#pauses game
-func _process(_delta):
-	if Input.is_action_just_pressed("pause"):
-		pauseMenu()
-	if Input.is_action_just_pressed("inventory"):
-		pauseInventory()
+enum MenuState {
+	NONE,
+	INVENTORY,
+	PAUSE
+}
+
+var current_menu_state : MenuState = MenuState.NONE
 
 func _ready():
+	pause_menu.visible = false
+	gamble_menu.visible = false
+	
 	randomize()
 	RunPerks.reset()
 	
@@ -42,25 +46,58 @@ func _ready():
 	GameEvents.enemy_killed_signal.connect(_on_enemy_killed)
 	GameEvents.boss_killed.connect(_on_boss_killed)
 
-func pauseMenu():
-	if paused:
-		pause_menu.hide()
-		Engine.time_scale = 1
-	else:
-		pause_menu.show()
-		Engine.time_scale = 0
+func set_menu_state(new_state : MenuState):
+	current_menu_state = new_state
+	
+	# Hide everything first
+	gamble_menu.visible = false
+	pause_menu.visible = false
+	
+	match current_menu_state:
+		MenuState.NONE:
+			get_tree().paused = false
 		
-	paused = !paused
+		MenuState.INVENTORY:
+			gamble_menu.visible = true
+			get_tree().paused = true
+		
+		MenuState.PAUSE:
+			pause_menu.visible = true
+			get_tree().paused = true
 
-func pauseInventory():
-	if paused:
-		gamble_menu.hide()
-		Engine.time_scale = 1
+func on_resume_button_pressed():
+	pause_menu.visible = false
+	get_tree().paused = false
+
+func toggle_pause_menu():
+	if current_menu_state == MenuState.PAUSE:
+		set_menu_state(MenuState.NONE)
 	else:
-		gamble_menu.show()
-		Engine.time_scale = 0
-		
-	paused = !paused
+		set_menu_state(MenuState.PAUSE)
+
+func toggle_inventory_menu():
+	if current_menu_state == MenuState.INVENTORY:
+		set_menu_state(MenuState.NONE)
+	elif current_menu_state == MenuState.PAUSE:
+		return
+	else:
+		set_menu_state(MenuState.INVENTORY)
+			
+func open_pause():
+	pause_menu.visible = true
+	get_tree().paused = true
+
+func close_pause():
+	pause_menu.visible = false
+	get_tree().paused = false
+
+func open_inventory():
+	gamble_menu.visible = true
+	get_tree().paused = true
+
+func close_inventory():
+	gamble_menu.visible = false
+	get_tree().paused = false
 
 func spawn_mob():
 	%PathFollow2D.progress_ratio = randf()
@@ -69,8 +106,8 @@ func spawn_mob():
 	new_mob.score_board = score_board
 	add_child(new_mob)
 
-
 func _on_timer_timeout():
+		
 	if boss_active:
 		return
 		

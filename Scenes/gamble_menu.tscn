@@ -1,23 +1,119 @@
-[gd_scene load_steps=4 format=3 uid="uid://y8k1vrbt1kp5"]
+[gd_scene load_steps=8 format=3 uid="uid://y8k1vrbt1kp5"]
 
+[ext_resource type="Script" uid="uid://lvau0jmhlhl" path="res://Scripts/gamble_menu.gd" id="1_722vl"]
 [ext_resource type="Texture2D" uid="uid://drne65whxj5ih" path="res://assets/slotup.png" id="1_j5mfp"]
 [ext_resource type="Texture2D" uid="uid://ufibjpaqxldu" path="res://assets/slotready.png" id="2_dkn5a"]
 [ext_resource type="Texture2D" uid="uid://er4iecmu6gwn" path="res://assets/slotdown.png" id="3_yen3f"]
+[ext_resource type="FontFile" uid="uid://upsg21jruar" path="res://assets/sketch-book-font/SketchBook-B5pB.ttf" id="4_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_PerksPanel"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.08, 0.08, 0.1, 0.86)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.95, 1, 0.22)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Scroll"]
+bg_color = Color(0, 0, 0, 0)
 
 [node name="gamble_menu" type="Control"]
-visible = false
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 80.0
+script = ExtResource("1_722vl")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 135.0
-offset_right = 513.0
+offset_right = 524.0
 offset_bottom = 647.0
 texture_normal = ExtResource("1_j5mfp")
 texture_pressed = ExtResource("3_yen3f")
 texture_hover = ExtResource("2_dkn5a")
+
+[node name="PerksLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+
+[node name="PerksRoot" type="Control" parent="PerksLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 726.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dimmer" type="ColorRect" parent="PerksLayer/PerksRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -727.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.28)
+
+[node name="PerksPanel" type="PanelContainer" parent="PerksLayer/PerksRoot"]
+process_mode = 3
+custom_minimum_size = Vector2(380, 560)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -404.0
+offset_top = 24.0
+offset_right = -12.0
+offset_bottom = 584.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_PerksPanel")
+
+[node name="PerksVBox" type="VBoxContainer" parent="PerksLayer/PerksRoot/PerksPanel"]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="PerksLayer/PerksRoot/PerksPanel/PerksVBox"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.98, 1, 0.96)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 26
+text = "YOUR PERKS"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="PerksLayer/PerksRoot/PerksPanel/PerksVBox"]
+process_mode = 3
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_Scroll")
+horizontal_scroll_mode = 0
+
+[node name="PerkList" type="VBoxContainer" parent="PerksLayer/PerksRoot/PerksPanel/PerksVBox/Scroll"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

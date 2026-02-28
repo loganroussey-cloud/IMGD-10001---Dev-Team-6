@@ -5,20 +5,16 @@ extends Control
 func _ready() -> void:
 	sketch_man = get_node("../sketch_man")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	position = sketch_man.position
 
-
-
 func _on_resume_pressed() -> void:
-	game.pauseMenu()
-
+	game.close_pause()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_backto_title_pressed() -> void:
+	game.close_pause()
 	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")

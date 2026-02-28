@@ -7,6 +7,7 @@
 radius = 67.0
 
 [node name="Boss" type="CharacterBody2D"]
+process_mode = 1
 scale = Vector2(1.6, 1.6)
 collision_layer = 2
 script = ExtResource("1_n7sh5")

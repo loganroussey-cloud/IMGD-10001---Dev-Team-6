@@ -50,3 +50,11 @@ func add_perk(perk_name: String):
 			damage_reduction += 0.05
 			
 	emit_signal("perk_added")
+
+
+func get_perk_counts() -> Dictionary:
+	var counts: Dictionary = {}
+	for p in owned_perks:
+		var key := str(p) # should be "Speed", "Damage", etc.
+		counts[key] = counts.get(key, 0) + 1
+	return counts
