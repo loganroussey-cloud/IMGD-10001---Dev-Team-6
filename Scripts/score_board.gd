@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var wrathkc = 0
 var shavings = 0
@@ -13,8 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position = sketch_man.position + Vector2(-500,-300)
-
+	#position = sketch_man.position + Vector2(-500,-300)
+	pass
 
 
 #func add_kc():

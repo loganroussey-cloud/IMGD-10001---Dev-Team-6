@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=17 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://4ode2436n8uc" path="res://Scripts/game.gd" id="1_qclsr"]
 [ext_resource type="PackedScene" uid="uid://bspsmgu0d0h2y" path="res://characters/bosses/boss.tscn" id="2_8o5cv"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dq52ugw388g8p" path="res://assets/papel.jpg" id="6_edxvn"]
 [ext_resource type="PackedScene" uid="uid://fl0bmolhqtia" path="res://Scenes/score_board.tscn" id="7_twsm8"]
 [ext_resource type="PackedScene" uid="uid://y8k1vrbt1kp5" path="res://Scenes/gamble_menu.tscn" id="8_v0jmy"]
-[ext_resource type="Script" uid="uid://lvau0jmhlhl" path="res://Scripts/gamble_menu.gd" id="9_8o5cv"]
 [ext_resource type="PackedScene" uid="uid://dfa3pl7cdjxai" path="res://Scenes/death_menu.tscn" id="11_5qepv"]
 [ext_resource type="PackedScene" uid="uid://dakrneelgibxr" path="res://Scenes/PerkNotification.tscn" id="13_g6j6v"]
 [ext_resource type="Script" uid="uid://c8y2ren84jxhe" path="res://Scenes/pause_controller.gd" id="14_ye702"]
@@ -41,6 +40,7 @@ autostart = true
 [node name="sketch_man" parent="." instance=ExtResource("4_5yf52")]
 process_mode = 1
 position = Vector2(424, 191)
+scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("2_a7q7f")]
 visible = false
@@ -180,7 +180,6 @@ script = ExtResource("14_ye702")
 
 [node name="gamble_menu" parent="." instance=ExtResource("8_v0jmy")]
 process_mode = 2
-script = ExtResource("9_8o5cv")
 
 [connection signal="timeout" from="Mob_Spawn_Timer" to="." method="_on_timer_timeout"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]

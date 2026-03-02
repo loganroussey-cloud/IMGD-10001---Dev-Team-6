@@ -70,7 +70,7 @@ animations = [{
 "frames": [],
 "loop": false,
 "name": &"eastidle",
-"speed": 24.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -115,7 +115,7 @@ animations = [{
 "frames": [],
 "loop": false,
 "name": &"northeastidle",
-"speed": 24.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,7 +126,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"northidle",
-"speed": 24.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -172,7 +172,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"northwestidle",
-"speed": 24.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -205,7 +205,7 @@ animations = [{
 "frames": [],
 "loop": false,
 "name": &"southeastidle",
-"speed": 24.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,7 +216,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"southidle",
-"speed": 24.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -265,7 +265,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"southwestidle",
-"speed": 24.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -311,7 +311,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"westidle",
-"speed": 24.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g4s4"]
@@ -330,7 +330,7 @@ script = ExtResource("1_f7rws")
 unique_name_in_owner = true
 position = Vector2(4, -6)
 sprite_frames = SubResource("SpriteFrames_6jefj")
-animation = &"southwestidle"
+animation = &"westidle"
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -362,3 +362,5 @@ shape = SubResource("RectangleShape2D_kkuqr")
 position = Vector2(0, -40)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.005

@@ -8,7 +8,7 @@ var dashing = false
 var health = 100.0
 var speed = 600.0
 
-const BASE_SPEED = 300
+const BASE_SPEED = 500
 const BASE_HEALTH = 100
 var max_health = BASE_HEALTH
 
@@ -46,15 +46,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	if direction != Vector2.ZERO:
-		if not is_moving:
-			is_moving = true
-		last_animation = get_direction_name(direction)
-		%PlayerAnimation.play(last_animation)
-	else:
-		if is_moving:
-			is_moving = false
-			%PlayerAnimation.play(last_animation + "idle")
+	if dashing == false:
+		if direction != Vector2.ZERO:
+			if not is_moving:
+				is_moving = true
+			last_animation = get_direction_name(direction)
+			%PlayerAnimation.play(last_animation)
+		else:
+			if is_moving:
+				is_moving = false
+				%PlayerAnimation.play(last_animation + "idle")
 
 	# Passive regen
 	if RunPerks.regen_per_second > 0 and health < max_health:
@@ -81,16 +82,24 @@ func _physics_process(delta):
 
 func _process(_delta):
 	if Input.is_action_pressed("dash")&&(!dashing)&&(velocity.length()!=0):
+			print(str(speed) + "this speed")
 			dashing = true
 			#var tempHealth = health
 			var tempSpeed = speed
-			speed = 1600.0
-			modulate = Color(0.026, 0.125, 0.495, 1.0)
+			speed = speed * 3
+			modulate = Color(1.0, 1.0, 1.0, 0.0)
 			await get_tree().create_timer(0.3).timeout #change time here for dash duration
 			#health = tempHealth
-			speed = tempSpeed
 			modulate = Color(0.605, 0.684, 1.0, 1.0)
-			await get_tree().create_timer(1.0).timeout #change time here for dash cooldown
+			%PlayerAnimation.play(last_animation + "idle")
+			%PlayerAnimation.frame = 0
+			%PlayerAnimation.stop()
+			while speed>tempSpeed:
+				speed -= 300
+				await get_tree().create_timer(0.025).timeout
+			%PlayerAnimation.play(last_animation)
+			speed = tempSpeed
+			await get_tree().create_timer(0.2).timeout #change time here for dash cooldown
 			modulate = Color(1.0, 1.0, 1.0, 1.0)
 			dashing = false
 			
