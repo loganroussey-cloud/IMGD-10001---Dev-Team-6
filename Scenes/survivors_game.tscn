@@ -44,6 +44,8 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("2_a7q7f")]
 visible = false
+light_mask = 512
+visibility_layer = 512
 z_index = 1
 
 [node name="Path2D" type="Path2D" parent="Player"]
@@ -164,15 +166,6 @@ offset_right = -46.0
 offset_bottom = -44.0
 
 [node name="score_board" parent="." instance=ExtResource("7_twsm8")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -163.0
-offset_top = -306.0
-offset_right = -163.0
-offset_bottom = -306.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="PauseController" type="Node" parent="."]
 process_mode = 3

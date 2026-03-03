@@ -4,6 +4,7 @@ signal health_depleted
 var last_animation = "north"
 var is_moving = false
 var dashing = false
+var animationStop = false
 
 var health = 100.0
 var speed = 600.0
@@ -24,6 +25,7 @@ func apply_perks():
 	speed = BASE_SPEED + RunPerks.speed_bonus
 
 func _ready():
+	%PlayerAnimation.frame = 1
 	RunPerks.perk_added.connect(apply_perks)
 	apply_perks()
 
@@ -43,10 +45,9 @@ func get_direction_name(direction: Vector2) -> String:
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
-
 	move_and_slide()
 	
-	if dashing == false:
+	if animationStop == false:
 		if direction != Vector2.ZERO:
 			if not is_moving:
 				is_moving = true
@@ -84,6 +85,9 @@ func _process(_delta):
 	if Input.is_action_pressed("dash")&&(!dashing)&&(velocity.length()!=0):
 			print(str(speed) + "this speed")
 			dashing = true
+
+			$CollisionShape2D.disabled = true
+			animationStop = true
 			#var tempHealth = health
 			var tempSpeed = speed
 			speed = speed * 3
@@ -99,7 +103,9 @@ func _process(_delta):
 				await get_tree().create_timer(0.025).timeout
 			%PlayerAnimation.play(last_animation)
 			speed = tempSpeed
-			await get_tree().create_timer(0.2).timeout #change time here for dash cooldown
+			animationStop = false
+			$CollisionShape2D.disabled = false
+			await get_tree().create_timer(3).timeout #change time here for dash cooldown
 			modulate = Color(1.0, 1.0, 1.0, 1.0)
 			dashing = false
 			

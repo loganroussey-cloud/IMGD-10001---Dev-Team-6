@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsw8raqgacxsc"]
+[gd_scene load_steps=6 format=3 uid="uid://dsw8raqgacxsc"]
 
 [ext_resource type="Script" uid="uid://bkr80mne8j843" path="res://Scripts/player.gd" id="1_73bic"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_bl5ih"]
-[ext_resource type="PackedScene" uid="uid://cphcr81upg72i" path="res://pistol/gun.tscn" id="3_bt0kc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csncd"]
 size = Vector2(66, 38)
@@ -22,9 +21,6 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_csncd")
-
-[node name="Gun" parent="." instance=ExtResource("3_bt0kc")]
-position = Vector2(0, -40)
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
