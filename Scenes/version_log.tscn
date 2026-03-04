@@ -55,6 +55,7 @@ v1.2
 
 
 v1.3
+
 - added wave based spawns for mobs, with a \"boss\" encounter once the wave bar fills
 - added perk list + 4 base modifiers
 - added death screen
@@ -62,6 +63,14 @@ v1.3
 - added new model of player
 - added 8-cardinal movement
 
+v1.4
+
+- added new perks
+- fixed ui overlap
+- adjusted player movement
+- improved dashing (you can dash through mobs and objects!)
+- changed bullet model
+- added sfx everywhere!
 "
 horizontal_alignment = 1
 

@@ -33,19 +33,7 @@ text = "CREDITS
 
 Programming - Kavin, David
 Art, Assets - Logan
-Audio Design - Logan, Kavin, David
-
-
-
-test
-
-
-
-test
-
-
-
-test"
+Audio Design - Logan, Kavin, David"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
