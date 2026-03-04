@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=19 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://4ode2436n8uc" path="res://Scripts/game.gd" id="1_qclsr"]
 [ext_resource type="PackedScene" uid="uid://bspsmgu0d0h2y" path="res://characters/bosses/boss.tscn" id="2_8o5cv"]
-[ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://characters/player.tscn" id="2_a7q7f"]
 [ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="3_6h7ij"]
 [ext_resource type="PackedScene" uid="uid://b8nnbr3kd30pk" path="res://Scenes/player_new.tscn" id="4_5yf52"]
 [ext_resource type="AudioStream" uid="uid://cfesk4tt8np37" path="res://audio/amen-break-120bpm.mp3" id="4_qqaft"]
@@ -45,16 +44,10 @@ process_mode = 1
 position = Vector2(274, 143)
 scale = Vector2(0.5, 0.5)
 
-[node name="Player" parent="." instance=ExtResource("2_a7q7f")]
-visible = false
-light_mask = 512
-visibility_layer = 512
-z_index = 1
-
-[node name="Path2D" type="Path2D" parent="Player"]
+[node name="Path2D" type="Path2D" parent="sketch_man"]
 curve = SubResource("Curve2D_cp6e5")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="sketch_man/Path2D"]
 unique_name_in_owner = true
 position = Vector2(-1055, -697)
 
@@ -822,6 +815,7 @@ offset_right = -46.0
 offset_bottom = -44.0
 
 [node name="score_board" parent="." instance=ExtResource("7_twsm8")]
+visible = false
 
 [node name="PauseController" type="Node" parent="."]
 process_mode = 3
@@ -1344,4 +1338,3 @@ position = Vector2(8000, 293)
 rotation = 3.1415927
 
 [connection signal="timeout" from="Mob_Spawn_Timer" to="." method="_on_timer_timeout"]
-[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
