@@ -9,11 +9,11 @@ func _physics_process(delta):
 	const RANGE = 1200
 
 	position += Vector2.RIGHT.rotated(rotation) * SPEED * delta
-	
+	$Sprite.rotation += 100
 	travelled_distance += SPEED * delta
 	if travelled_distance > RANGE:
 		queue_free()
-
+	
 
 func _on_body_entered(body):
 	var final_damage = base_damage + RunPerks.damage_bonus

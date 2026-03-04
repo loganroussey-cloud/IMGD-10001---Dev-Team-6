@@ -146,19 +146,17 @@ func _on_boss_killed():
 	start_next_wave()
 	
 func show_perk_choices():
-	var choices = []
-	var pool = all_perks.duplicate()
-	
-	for i in 3:
-		var index = randi() % pool.size()
-		choices.append(pool[index])
-		pool.remove_at(index)
+	var pool: Array = all_perks.duplicate()
+	pool.shuffle()
+
+	# Take the first 3 after shuffling
+	var choices: Array = pool.slice(0, 3)
 
 	# Apply perks
 	for perk in choices:
 		RunPerks.add_perk(perk)
 
-	# Show ALL perks in one notification
+	# Show the 3 perks in one notification
 	perk_notification.show_multiple_perks(choices)
 
 	boss_active = false

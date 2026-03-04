@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn7d5vweo204v"]
+
+[ext_resource type="Script" uid="uid://cu0juhjbk4vad" path="res://Scripts/throw_sound.gd" id="1_y3bcn"]
+[ext_resource type="AudioStream" uid="uid://d0rw0hypqyqvo" path="res://audio/ribhavagrawal-woosh-230554 (mp3cut.net).mp3" id="2_owjco"]
+
+[node name="throw_sound" type="Node2D"]
+script = ExtResource("1_y3bcn")
+
+[node name="AudioStreamPlayer2DThrow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_owjco")

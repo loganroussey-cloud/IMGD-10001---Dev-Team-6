@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bspsmgu0d0h2y" path="res://characters/bosses/boss.tscn" id="2_8o5cv"]
 [ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="3_6h7ij"]
 [ext_resource type="PackedScene" uid="uid://b8nnbr3kd30pk" path="res://Scenes/player_new.tscn" id="4_5yf52"]
-[ext_resource type="AudioStream" uid="uid://cfesk4tt8np37" path="res://audio/amen-break-120bpm.mp3" id="4_qqaft"]
 [ext_resource type="PackedScene" uid="uid://rignv00ljcd1" path="res://Scenes/pause_menu.tscn" id="5_7jj1j"]
 [ext_resource type="Texture2D" uid="uid://dq52ugw388g8p" path="res://assets/papel.jpg" id="6_edxvn"]
 [ext_resource type="PackedScene" uid="uid://fl0bmolhqtia" path="res://Scenes/score_board.tscn" id="7_twsm8"]
+[ext_resource type="AudioStream" uid="uid://birq4nuvg7nh" path="res://audio/Meganeko_-_The_Cyber_Grind_(mp3.pm).mp3" id="8_4cvxr"]
 [ext_resource type="PackedScene" uid="uid://ydud7fyyi4nm" path="res://rapaheads/rapa_nui.tscn" id="8_mkncy"]
 [ext_resource type="PackedScene" uid="uid://y8k1vrbt1kp5" path="res://Scenes/gamble_menu.tscn" id="8_v0jmy"]
 [ext_resource type="PackedScene" uid="uid://dfa3pl7cdjxai" path="res://Scenes/death_menu.tscn" id="11_5qepv"]
@@ -796,7 +796,7 @@ position = Vector2(-58, 1699)
 position = Vector2(451, -889)
 
 [node name="AmenBreak120Bpm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_qqaft")
+stream = ExtResource("8_4cvxr")
 autoplay = true
 bus = &"BackgroundSFX"
 parameters/looping = true

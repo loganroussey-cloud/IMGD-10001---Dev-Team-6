@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://uwe102cn23w5"]
+
+[ext_resource type="Script" uid="uid://r886n05r5xpg" path="res://Scripts/death_sound.gd" id="1_nnko3"]
+[ext_resource type="AudioStream" uid="uid://cmgftoul4givc" path="res://audio/eraser sfx.mp3" id="2_2updd"]
+
+[node name="death_sound" type="Node2D"]
+script = ExtResource("1_nnko3")
+
+[node name="AudioStreamPlayer2DDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2updd")
+volume_db = 10.0

@@ -28,6 +28,8 @@ func shoot():
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_transform = %ShootingPoint.global_transform
 	%ShootingPoint.add_child(new_bullet)
+	var new_throw = preload("res://Scenes/throw_sound.tscn").instantiate()
+	add_child(new_throw)
 
 func _on_timer_timeout() -> void:
 	shoot()

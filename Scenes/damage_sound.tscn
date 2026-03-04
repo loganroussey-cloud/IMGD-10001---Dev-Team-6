@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://br4akwomyap7b"]
+
+[ext_resource type="Script" uid="uid://d1g7ne53rowmt" path="res://Scripts/damage_sound.gd" id="1_mykxc"]
+[ext_resource type="AudioStream" uid="uid://fvcikrcm70ri" path="res://audio/floraphonic-cartoon-slap-2-189831.mp3" id="2_hnfdx"]
+
+[node name="damage_sound" type="Node2D"]
+script = ExtResource("1_mykxc")
+
+[node name="AudioStreamPlayer2DDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hnfdx")
