@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ydud7fyyi4nm"]
+
+[ext_resource type="Texture2D" uid="uid://cmfknq727ff6k" path="res://assets/Rapa_nui.png" id="1_slw7u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slw7u"]
+radius = 163.10728
+height = 545.77795
+
+[node name="rapa_nui" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-41, 45.000015)
+rotation = 0.61086524
+shape = SubResource("CapsuleShape2D_slw7u")
+
+[node name="RapaNuiHead" type="Sprite2D" parent="."]
+position = Vector2(90.00006, -587)
+scale = Vector2(1.0234375, 1.1113281)
+texture = ExtResource("1_slw7u")

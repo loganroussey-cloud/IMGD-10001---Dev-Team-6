@@ -92,6 +92,7 @@ GameEvents="*res://Scripts/game_events.gd"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="viewport"
 
 [dotnet]

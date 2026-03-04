@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://eoga41lm621l"]
+
+[ext_resource type="Texture2D" uid="uid://conbljvkj1mfw" path="res://assets/wall.png" id="1_mcqr0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fqowx"]
+distance = -314.0
+
+[node name="wall" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(327, 307)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_fqowx")
+
+[node name="rock_pic" type="Sprite2D" parent="."]
+position = Vector2(-32.99994, 327.99997)
+scale = Vector2(0.050579388, 0.7260428)
+texture = ExtResource("1_mcqr0")

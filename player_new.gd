@@ -83,7 +83,6 @@ func _physics_process(delta):
 
 func _process(_delta):
 	if Input.is_action_pressed("dash")&&(!dashing)&&(velocity.length()!=0):
-			print(str(speed) + "this speed")
 			dashing = true
 
 			$CollisionShape2D.disabled = true
